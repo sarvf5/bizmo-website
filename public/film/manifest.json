@@ -1,0 +1,33 @@
+{
+  "version": 1790868494396,
+  "fps": 24,
+  "pattern": "/film/{set}/{clip}/{index}.webp",
+  "pad": 4,
+  "sets": {
+    "lg": 1600,
+    "sm": 960
+  },
+  "clips": {
+    "hero": {
+      "count": 121
+    },
+    "turn": {
+      "count": 145
+    },
+    "explode": {
+      "count": 145
+    },
+    "layers": {
+      "count": 121
+    },
+    "camera": {
+      "count": 121
+    },
+    "edge": {
+      "count": 121
+    },
+    "logo": {
+      "count": 75
+    }
+  }
+}
