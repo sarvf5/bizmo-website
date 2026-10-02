@@ -125,7 +125,7 @@ export const apps = {
 
 export const daily = {
   title: ["The apps you work with.", "Nothing you never asked for."],
-  body: "Banking, invoicing, signatures, calls over the internet, navigation and security cameras. Bizmo runs the approved business apps you already use, and nothing else.",
+  body: "Banking, invoicing, signatures, phone-over-internet, navigation and security cameras. Bizmo runs the approved business apps you already use, and nothing else.",
   caption: "Illustration. App names are shown as text, and the final screen may differ.",
   apps: [
     { name: "Chase", short: "C" },
