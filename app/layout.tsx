@@ -13,14 +13,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${site.name}. ${site.oneLine}`,
     description: site.tagline,
-    images: ["/film/stills/hero-first.webp"],
+    images: ["/apple/front.webp"],
     type: "website",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#101216",
-  colorScheme: "dark",
+  themeColor: "#ffffff",
+  colorScheme: "light",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -28,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" dir="ltr">
       <body id="top">
-        <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-ink">
+        <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-blue focus:px-4 focus:py-2 focus:text-white">
           Skip to content
         </a>
         {children}

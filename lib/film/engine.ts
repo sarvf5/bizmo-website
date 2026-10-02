@@ -233,7 +233,7 @@ export class FrameStore {
 
 /* ------------------------------------------------------------------ drawing */
 
-export const STAGE = "#101216"; // matches the edge colour of every film frame
+export const STAGE = "#000000"; // film frames are graded to pure black for this edition (scripts/frames.mjs GRADE=black)
 
 export type View = { W: number; H: number; mobile: boolean };
 
@@ -285,8 +285,8 @@ export function feather(ctx: CanvasRenderingContext2D, p: ReturnType<typeof plac
   for (const [x0, y0, x1, y1, rx, ry, rw, rh] of edges) {
     if (rx > W || ry > H || rx + rw < 0 || ry + rh < 0) continue;
     const g = ctx.createLinearGradient(x0, y0, x1, y1);
-    g.addColorStop(0, "rgba(16,18,22,1)");
-    g.addColorStop(1, "rgba(16,18,22,0)");
+    g.addColorStop(0, "rgba(0,0,0,1)");
+    g.addColorStop(1, "rgba(0,0,0,0)");
     ctx.fillStyle = g;
     ctx.fillRect(rx, ry, rw, rh);
   }

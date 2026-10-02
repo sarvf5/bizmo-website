@@ -260,7 +260,7 @@ function PinnedFilm({ id, label, clips, tl, copy, callouts = [], tail = 0.6, scr
   }, [clips, tl, copy, callouts]);
 
   return (
-    <section ref={sectionRef} id={id} aria-label={label} className="relative bg-graphite" style={{ height: `${(tl.total + tail) * 100}svh` }}>
+    <section ref={sectionRef} id={id} aria-label={label} className="on-dark relative bg-night text-snow" style={{ height: `${(tl.total + tail) * 100}svh` }}>
       <div ref={stageRef} className="sticky top-0 h-svh w-full overflow-hidden">
         <canvas ref={canvasRef} aria-hidden="true" className="absolute inset-0 h-full w-full" />
         {glow && (
@@ -277,22 +277,22 @@ function PinnedFilm({ id, label, clips, tl, copy, callouts = [], tail = 0.6, scr
             <div
               className={`absolute inset-y-0 start-0 hidden md:block ${
                 scrim === "strong"
-                  ? "w-[68%] bg-[linear-gradient(to_right,rgb(16_18_22/0.96),rgb(16_18_22/0.82)_40%,transparent)] rtl:bg-[linear-gradient(to_left,rgb(16_18_22/0.96),rgb(16_18_22/0.82)_40%,transparent)]"
-                  : "w-[52%] bg-[linear-gradient(to_right,rgb(16_18_22/0.88),rgb(16_18_22/0.55)_45%,transparent)] rtl:bg-[linear-gradient(to_left,rgb(16_18_22/0.88),rgb(16_18_22/0.55)_45%,transparent)]"
+                  ? "w-[68%] bg-[linear-gradient(to_right,rgb(0_0_0/0.96),rgb(0_0_0/0.82)_40%,transparent)] rtl:bg-[linear-gradient(to_left,rgb(0_0_0/0.96),rgb(0_0_0/0.82)_40%,transparent)]"
+                  : "w-[52%] bg-[linear-gradient(to_right,rgb(0_0_0/0.88),rgb(0_0_0/0.55)_45%,transparent)] rtl:bg-[linear-gradient(to_left,rgb(0_0_0/0.88),rgb(0_0_0/0.55)_45%,transparent)]"
               }`}
             />
-            {scrim === "both" && <div className="absolute inset-y-0 end-0 hidden w-[40%] bg-[linear-gradient(to_left,rgb(16_18_22/0.8),transparent)] md:block" />}
-            <div className="absolute inset-x-0 bottom-0 h-[58%] bg-[linear-gradient(to_top,rgb(16_18_22/0.97)_30%,rgb(16_18_22/0.6)_65%,transparent)] md:h-40 md:bg-[linear-gradient(to_top,rgb(16_18_22/0.7),transparent)]" />
-            <div className="absolute inset-x-0 top-0 h-32 bg-[linear-gradient(to_bottom,rgb(16_18_22/0.7),transparent)]" />
+            {scrim === "both" && <div className="absolute inset-y-0 end-0 hidden w-[40%] bg-[linear-gradient(to_left,rgb(0_0_0/0.8),transparent)] md:block" />}
+            <div className="absolute inset-x-0 bottom-0 h-[58%] bg-[linear-gradient(to_top,rgb(0_0_0/0.97)_30%,rgb(0_0_0/0.6)_65%,transparent)] md:h-40 md:bg-[linear-gradient(to_top,rgb(0_0_0/0.7),transparent)]" />
+            <div className="absolute inset-x-0 top-0 h-32 bg-[linear-gradient(to_bottom,rgb(0_0_0/0.7),transparent)]" />
           </div>
         )}
 
         {callouts.map((c) => (
           <div key={c.id} data-callout={c.id} aria-hidden="true" dir="ltr" className="callout">
             <div className={`flex items-center ${c.side === "left" ? "flex-row" : "flex-row-reverse"}`}>
-              <div className={`[text-shadow:0_1px_12px_rgb(16_18_22/0.9)] ${c.side === "left" ? "pr-4 text-right" : "pl-4 text-left"}`}>
-                <p className="text-[0.95rem] leading-tight font-medium whitespace-nowrap text-aluminium">{c.label}</p>
-                {c.sub && <p className={`mt-1 max-w-[15rem] text-[0.8rem] leading-snug text-mist ${c.side === "left" ? "ms-auto" : ""}`}>{c.sub}</p>}
+              <div className={`[text-shadow:0_1px_12px_rgb(0_0_0/0.9)] ${c.side === "left" ? "pr-4 text-right" : "pl-4 text-left"}`}>
+                <p className="text-[0.95rem] leading-tight font-medium whitespace-nowrap text-snow">{c.label}</p>
+                {c.sub && <p className={`mt-1 max-w-[15rem] text-[0.8rem] leading-snug text-snow-2 ${c.side === "left" ? "ms-auto" : ""}`}>{c.sub}</p>}
               </div>
               <div
                 className="callout-line"
@@ -312,7 +312,7 @@ function PinnedFilm({ id, label, clips, tl, copy, callouts = [], tail = 0.6, scr
         </div>
 
         <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-px bg-white/[0.06]">
-          <div ref={progressRef} className="h-full origin-left bg-aluminium/40 rtl:origin-right" style={{ transform: "scaleX(0)" }} />
+          <div ref={progressRef} className="h-full origin-left bg-snow/40 rtl:origin-right" style={{ transform: "scaleX(0)" }} />
         </div>
       </div>
     </section>
@@ -323,7 +323,7 @@ function PinnedFilm({ id, label, clips, tl, copy, callouts = [], tail = 0.6, scr
 
 function StaticFilm({ id, label, copy, callouts = [] }: FilmProps) {
   return (
-    <section id={id} aria-label={label} className="static-film bg-graphite py-20 md:py-28">
+    <section id={id} aria-label={label} className="static-film on-dark bg-night py-20 text-snow md:py-28">
       <div className="wrap flex flex-col gap-20 md:gap-28">
         {copy.map((c) => {
           const notes = callouts.filter((k) => k.in >= c.in - 0.01 && k.in < c.out);
@@ -335,8 +335,8 @@ function StaticFilm({ id, label, copy, callouts = [] }: FilmProps) {
                   <ul className="mt-8 grid gap-3 border-t border-white/10 pt-6 text-[0.95rem]">
                     {notes.map((n) => (
                       <li key={n.id}>
-                        <span className="text-aluminium">{n.label}</span>
-                        {n.sub && <span className="text-mist">, {n.sub}</span>}
+                        <span className="text-snow">{n.label}</span>
+                        {n.sub && <span className="text-snow-2">, {n.sub}</span>}
                       </li>
                     ))}
                   </ul>

@@ -125,7 +125,7 @@ export const apps = {
 
 export const daily = {
   title: ["The apps you work with.", "Nothing you never asked for."],
-  body: "Banking, invoicing, signatures, calls over the internet, navigation and security cameras. Bizmo runs the approved business apps you already use, and nothing else.",
+  body: "Banking, invoicing, signatures, phone-over-internet, navigation and security cameras. Bizmo runs the approved business apps you already use, and nothing else.",
   caption: "Illustration. App names are shown as text, and the final screen may differ.",
   apps: [
     { name: "Chase", short: "C" },
@@ -238,4 +238,76 @@ export const footer = {
   line: site.tagline,
   legal: `© ${new Date().getFullYear()} ${site.company}`,
   note: "App names and trademarks belong to their owners.",
+};
+
+/* ================================================================== Apple-style edition (branch apple-edition)
+   Same facts as above, written in a shorter, calmer voice. */
+
+export const ed = {
+  nav: [
+    { href: "#overview", label: "Overview" },
+    { href: "#apps", label: "Apps" },
+    { href: "#security", label: "Security" },
+    { href: "#specs", label: "Tech Specs" },
+    { href: "#compare", label: "Compare" },
+  ],
+  cta: "Notify me",
+  hero: {
+    title: ["Not filtered.", "Built kosher."],
+    sub: "The kosher business tablet. Its own operating system. Only approved business apps.",
+    more: "See how it’s built",
+    status: "Entering production. Sold through authorized dealers.",
+  },
+  highlights: {
+    title: "Get the highlights.",
+    slides: [
+      { id: "os", lead: "Its own operating system.", rest: "Built from its own source code, with filtering built into the apps themselves.", img: "/apple/explode-white.webp", alt: "Bizmo taken apart into its layers, from the engraved back cover to the display" },
+      { id: "apps", lead: "About 190 approved business apps.", rest: "Banking, payments, documents, phone-over-internet, cameras and travel. Nothing else runs.", img: "home", alt: "Bizmo home screen illustration with approved business apps" },
+      { id: "layers", lead: "Kosher inside, not added on top.", rest: "Secure boot, a locked bootloader, verified boot and full encryption.", img: "/apple/layers-white.webp", alt: "Glowing layers rising from the Bizmo screen" },
+      { id: "distinct", lead: "Recognisable across the room.", rest: "Visually distinct, so anyone can see it is a kosher device.", img: "/apple/back.webp", alt: "The back of Bizmo with its engraved logo and camera" },
+      { id: "camera", lead: "13 MP rear camera.", rest: "For scanning and signing documents with approved apps.", img: "/apple/camera-macro.webp", alt: "Close-up of the Bizmo rear camera" },
+    ],
+  },
+  manifesto:
+    "Bizmo is not a regular tablet with a filter added on top. It runs its own operating system, built from its own source code, and the filtering is built into the apps themselves.",
+  film: {
+    a: { title: "Built from the ground up.", sub: "Not a regular tablet with a filter on top." },
+    b: { title: "Its own operating system.", sub: "Built from its own source code." },
+    c: { title: "Kosher inside.", titleB: "Not added on top." },
+  },
+  apps: {
+    title: "All the apps business runs on.",
+    sub: "About 190 approved apps, from banking and invoicing to phone-over-internet, cameras and transit.",
+    notLead: "And nothing else.",
+    not: ["No web browser.", "No social media.", "No entertainment.", "No WhatsApp.", "No remote access.", "No AI."],
+  },
+  speed: {
+    title: "Native speed. No proxy.",
+    sub: "A filter subscription sends your traffic through a filter server first. Bizmo filters inside the device, so your apps connect without the detour.",
+  },
+  security: {
+    title: "Locked at the firmware.",
+    sub: "It cannot be bypassed the way a filter app can.",
+    items: ["Secure boot", "Locked bootloader", "Verified boot", "Full encryption"],
+  },
+  closeups: {
+    camera: { title: "13 MP rear camera.", sub: "Scan and sign documents with approved apps." },
+    display: { title: "FHD 1920×1200", titleB: "IPS display." },
+    connect: { title: "Connected.", sub: "4G LTE, Wi-Fi 802.11ac, Bluetooth 5.0, GPS and USB-C." },
+  },
+  trust: {
+    title: "Certified by Vaad HaKehilos.",
+    titleB: "Tested by Safe Telecom.",
+    sub: "Communities and institutions can set standards stricter than the default.",
+  },
+  compare: {
+    title: "One device instead of a tablet and a filter.",
+    left: "Tablet with a filter",
+    right: "Bizmo",
+  },
+  who: {
+    title: "Made for people who already work on a tablet.",
+    lead: "A cleaner, certified replacement.",
+    rest: "For business owners, salespeople, contractors, field workers, travelers and office professionals. One device, one price, sold through authorized dealers.",
+  },
 };

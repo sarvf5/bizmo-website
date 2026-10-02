@@ -28,6 +28,9 @@ const OUT = join(ROOT, "public", "film");
 const FPS = Number(process.env.FPS ?? 24);
 const QUALITY = Number(process.env.QUALITY ?? 74);
 const SETS = { lg: 1600, sm: 960 };
+// GRADE=black lifts the studio's graphite background to pure black (the Apple-style edition sits on #000)
+const GRADE = process.env.GRADE ?? "black";
+const grade = GRADE === "black" ? "colorlevels=rimin=0.085:gimin=0.09:bimin=0.105,vignette=angle=PI/3.2," : "";
 export const CLIPS = ["hero", "turn", "explode", "layers", "camera", "edge", "logo"];
 
 const run = (args) => execFileSync(FFMPEG, ["-hide_banner", "-loglevel", "error", "-y", ...args], { stdio: "inherit" });
@@ -46,7 +49,7 @@ for (const [set, width] of Object.entries(SETS)) {
   for (const clip of CLIPS) {
     const dir = join(stage, set, clip);
     mkdirSync(dir, { recursive: true });
-    run(["-i", join(SRC, `${clip}.mp4`), "-an", "-vf", `fps=${FPS},scale=${width}:-2:flags=lanczos`, "-c:v", "libwebp", "-quality", String(QUALITY), "-compression_level", "5", "-start_number", "0", join(dir, "%04d.webp")]);
+    run(["-i", join(SRC, `${clip}.mp4`), "-an", "-vf", `${grade}fps=${FPS},scale=${width}:-2:flags=lanczos`, "-c:v", "libwebp", "-quality", String(QUALITY), "-compression_level", "5", "-start_number", "0", join(dir, "%04d.webp")]);
     const files = readdirSync(dir).filter((f) => f.endsWith(".webp"));
     const bytes = files.reduce((s, f) => s + statSync(join(dir, f)).size, 0);
     total += bytes;
@@ -59,8 +62,8 @@ for (const [set, width] of Object.entries(SETS)) {
 mkdirSync(join(stage, "stills"), { recursive: true });
 for (const clip of CLIPS) {
   const src = join(SRC, `${clip}.mp4`);
-  run(["-i", src, "-frames:v", "1", "-vf", "scale=1600:-2:flags=lanczos", "-c:v", "libwebp", "-quality", "82", join(stage, "stills", `${clip}-first.webp`)]);
-  run(["-sseof", "-0.08", "-i", src, "-update", "1", "-frames:v", "1", "-vf", "scale=1600:-2:flags=lanczos", "-c:v", "libwebp", "-quality", "82", join(stage, "stills", `${clip}-last.webp`)]);
+  run(["-i", src, "-frames:v", "1", "-vf", `${grade}scale=1600:-2:flags=lanczos`, "-c:v", "libwebp", "-quality", "82", join(stage, "stills", `${clip}-first.webp`)]);
+  run(["-sseof", "-0.08", "-i", src, "-update", "1", "-frames:v", "1", "-vf", `${grade}scale=1600:-2:flags=lanczos`, "-c:v", "libwebp", "-quality", "82", join(stage, "stills", `${clip}-last.webp`)]);
 }
 
 writeFileSync(
